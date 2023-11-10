@@ -1,20 +1,52 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-export default function App() {
+import HomeScreen from "./components/HomeScreen";
+import DetailScreen from "./components/DetailScreen";
+
+const Stack = createStackNavigator();
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: 'gray',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+          headerStatusBarHeight: 40
+        }}
+      >
+        <Stack.Screen 
+          name="Home" 
+          component={HomeScreen} 
+          options={{
+            headerTitleAlign: 'center',
+          }}
+        />
+        <Stack.Screen 
+          name="Detail" 
+          component={DetailScreen}
+          options={{
+            headerTitle: " ",
+            headerTitleAlign: 'center',
+            headerTintColor: "#222",
+            headerTitleStyle: {
+              fontWeight: "bold"
+            }
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
+
+
