@@ -44,6 +44,9 @@ const ModalButton = () => {
 
 
   const styles = StyleSheet.create({
+    btn: {
+      marginTop: 50
+    },
     centeredView: {
       flex: 1,
       justifyContent: "center",

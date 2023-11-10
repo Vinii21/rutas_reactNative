@@ -9,10 +9,12 @@ const HomeScreen = ({navigation}) => {
     return (
       <View style={styles.container}>
         <Text>Open up App.js to start working on your app!</Text>
+        <View style={styles.btn}>
         <Button 
           title="Go Detail Page"
           onPress={()=>navigation.push("Detail")}
         />
+        </View>
         <ModalButton />
       </View>
     );
@@ -26,5 +28,8 @@ const HomeScreen = ({navigation}) => {
       backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'center',
+    },
+    btn: {
+      marginTop: 30
     }
   });
